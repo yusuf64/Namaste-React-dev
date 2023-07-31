@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 // For creating an element we will use REACT method, create element, it will take three arguments 1. the tag that we want to create  2. the object in which we can add attribute to our element 3. the content inside our tag
 
 const heading = React.createElement(
@@ -67,5 +70,9 @@ const parent3 = React.createElement("div", { id: "parent" }, [
 // but but but how can we use this its very ugly and what if we have more nested ocmplex html we cant even read this to solve this problem we will use JSX
 
 // WILL soon learn about JSX till then enjoy :)DD
+
+const parent4 = React.createElement("div", { id: "new" }, [
+  React.createElement("h1", { id: "new" }, "heading"),
+]);
 
 // what if we have already have some content inside root elmenet , root.render replaces everyting in that root element with the content we will add using root.render(heaindg);

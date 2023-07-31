@@ -1,0 +1,98 @@
+Chapter 2 - Igniting our App - 31 August 2023
+
+in this chapter we will ignite our App
+
+What is NPM?
+- Npm is everything but not node package manager but it manages the packages :D
+- Its a package manager which will manage all the packages which we will install.
+- With npm you can almost import any package its one of the largest package manager
+- package.json is the configuration of the NPM.
+- package is also known as dependencfa-inverse
+
+What is difference between dependencies vs devDependencies?
+- Dependencies should contain library and framework in which your app is built on, needs to function effectively. such as Vue, React, Angular, Express, JQuery and etc. DevDependencies should contain modules/packages a developer needs during development. such as, parcel, webpack, vite, mocha. These packages are necessary only while you are developing your project, not necessary on production. To save a dependency as a devDependency on installation we need to do,
+
+What is dependencies in easy words?
+Dependencies are something on which our project is depend upon 
+the most important package that we are going to install is BUNDLER
+
+What is BUNDLER?
+Bundler is something which just bundles your app properly so we can shipped it to production. there are lots of bundlers in the market i.e Parcel, Vite, Webpack etc
+
+N. There are two types of Dependencies
+1. DevDependencies
+2. Normal Dependencies
+
+Q. What is DevDependencies?
+
+When we are developing our App or pushing it to production we use Dev Dependencies, DevDependencies contain modules/ packages which are necessary in development DevDependencies are parcel, vite, webpack, mocha etc. These packages are necessary only when you are working on development environment
+
+Q. What is Dependencies ?
+Dependencies should contain library and framework in which your app is built on, needs to function effectively. such as Vue, React, Angular, Express, JQuery and etc.
+
+
+To install a depedency we use [ npm install packagename]
+To install a devDependency we use [npm install -D packagename]
+
+
+Q. What is a Parcel/Webpack?
+
+Parcel is Beast 
+
+
+Q. What is tilde ~ and caret ^ in package.json
+
+A. when we use caret ^ in our version it will automatically update the minor version of the npm and when we use tilde ~ it updates the major version , ideally u should be uisng caret , bcoz we dont want things to break in our App :(
+
+Q. What is the difference between package.json and package-lock.json?
+
+- package.json
+a. package.json keeps the configuration/track of the packages we are using in our project its is required in every project, if we use caret or tilde in version it will automatically install the updated version
+
+
+- package-lock.json
+
+a. package-lock.json keeps approximate track of each and every package that we install in our project, even it keeps track of package.json the exact version when it got installed
+
+* It allows future devs & automated systems to download the same dependencies as the project.
+
+* it also allows to go back to the past version of the dependencies without actual ‘committing the node_modules folder.
+
+* It records the same version of the installed packages which allows to reinstall them. 
+
+* Future installs will be capable of building identical description tree.
+
+// As you can see now when we install the parcel we got a folder 'node modules' and in that folder we can see huge files literally
+
+// so why is this happended bcoz you only installed parcel right then why we got so many files this is because parcel has its own dependencies and that dependencies has its own dependencies this is what we called 'TRANSITIVE Dependencies'
+
+
+Q. WHAT ARE NODE modules
+
+A. Node modules are collection of Dependencies
+
+
+Q. What is GITIGNORE
+
+If you dont want to push something into production/ GIT , you just add them in gitignore 
+
+
+Q. Why we do not push node_modules in production/github, isn't it important?
+
+A. The reason is simple we have all the dependencies registered in package.json and exact version of depedency in package-lock.json and it has sha5 hashing which ensure that we use the same dependencies in the production that we used in local and once we have package and package-lock.json we can install the same node_modules again by entering 
+
+'npm install '
+
+
+// NOW LETS IGNITE OUR APP 
+
+- we will write npx parcel index.html
+
+
+// Now What is NPX?
+- NPX is used to execute a package 
+
+// What does Parcel do?
+- Dev build
+- HRM (hot Module Replacement)
+- Local Server
