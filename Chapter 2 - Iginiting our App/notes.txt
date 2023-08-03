@@ -94,5 +94,20 @@ A. The reason is simple we have all the dependencies registered in package.json 
 
 // What does Parcel do?
 - Dev build
-- HRM (hot Module Replacement)
+- HMR (hot Module Replacement)
 - Local Server
+- File Watching Algorithm - Written in C++
+- Caching - Faster Builds
+- Image Optimisation
+- Minification of files
+- Bundling
+- Compressing
+- Consistent hashing
+- Code Splitting
+- Differential Bundling - to support older browsers also
+- Diagnostics
+- Good Error handling
+- HTTPs
+- Lazy Loading
+- Tree Shakings - remove unused code
+- Different Dev and Production Bundles
