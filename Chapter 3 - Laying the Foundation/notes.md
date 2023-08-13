@@ -59,3 +59,17 @@ Self-closing Tags: JSX supports self-closing tags for components without childre
 -- What if we want to write mulitple lines on jsx how can we write it?
 
 ## we must wrap our jsx inside () round brackets so that babel can understand that jsx is starting here and ending here.
+
+-- What is React Components ? (very important)
+
+## There are two types of React Components -
+
+# 1. Class Based Component
+
+# 2. Functional Component
+
+# Functional React Component is nothing but a javascript function which returns a piece of JSX or a React Element and a JSX is nothing but a React Element.
+
+# Whenever you create a Component make sure the starting word is Capital, otherwise you will get an error
+
+# Everything in React is a Component
