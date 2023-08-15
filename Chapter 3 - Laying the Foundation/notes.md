@@ -62,6 +62,8 @@ Self-closing Tags: JSX supports self-closing tags for components without childre
 
 -- What is React Components ? (very important)
 
+# Everything in React is a Component
+
 ## There are two types of React Components -
 
 # 1. Class Based Component
@@ -72,4 +74,22 @@ Self-closing Tags: JSX supports self-closing tags for components without childre
 
 # Whenever you create a Component make sure the starting word is Capital, otherwise you will get an error
 
-# Everything in React is a Component
+-- What is React Component Composition ?
+
+# React Component is composing two components in one another
+
+-- What is one important and powerful feature of JSX?
+
+# In JSX you can write any javascript code just by using {} curly braces and your javascript code wil be inside those curly braces { 2 - 3 }
+
+-- what is one powerful feature of JSX?
+
+# Whatever data u pass in JSX, it will sanitize it and then runs it in browser, this is very powerful feature to prevent malicious attacks such as cross site scripting.
+
+-- In how many way we can write write our component?
+
+# We can write it like this
+
+# 1. <Title/>
+
+# 2. <Title></Title>
