@@ -1,41 +1,50 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// This is a React Element
+/* 
+Header
+   - Logo
+   - Navlinks
+Body
+   - Search
+   - Restuarent Container
+   - Restaurant Card
+Footer
+   - Copyright
+   - quicklinks
+   - Address
+*/
 
-const heading = React.createElement("h1", { id: "new" }, "Hello I am react");
+const Header = () => {
+  return (
+    <div className="header">
+      <div className="logocontainer">
+        <img
+          src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png"
+          alt="Food logo"
+          className="logo"
+        />
+      </div>
+      <div className="nav-links-container">
+        <ul>
+          <li>Home</li>
+          <li>About us</li>
+          <li>Contact us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
 
-const JSXheading = <h1>Hello From JSX</h1>;
-
-console.log(JSXheading);
+const AppLayout = () => {
+  return (
+    <div className="App">
+      <Header />
+    </div>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-console.log(root);
-
-// This is a React Component
-
-const HeadingComponent = () => <h1>Hello World</h1>;
-
-const nameofClass = "hello";
-
-// So this is how we render an fucntional component what if we wnat to render an elwment
-// we can do this i have created a variable nameofClass and i called it in JSX withthe use of {} curly braces
-
-const TitleComponent = () => (
-  <div id="main">
-    <HeadingComponent />
-    <h1 className={nameofClass}>Hello Word from another Component</h1>
-  </div>
-);
-
-// root.render(
-//   <>
-//     <HeadingComponent />
-//     <TitleComponent name={"hello"} />
-//   </>
-// );
-
-// The above way of doing these and below way of rendering two components either we nest it inside one another or we use <></> and call our components here
-
-root.render(<TitleComponent />);
+root.render(<AppLayout />);

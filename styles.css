@@ -1,4 +1,7 @@
-.heading {
-  color: grey;
-  font-family: "Times New Roman", Times, serif;
+.header {
+  display: flex;
+}
+
+.header ul {
+  display: inline-block;
 }

@@ -93,3 +93,5 @@ Self-closing Tags: JSX supports self-closing tags for components without childre
 # 1. <Title/>
 
 # 2. <Title></Title>
+
+# 3. {Title()} - Remember we can put any javascript code in curly braces, so functional components at the end of the day is nothing but a javascirpt funciton whihc is returing a piece of jsx, so we can execute this.
