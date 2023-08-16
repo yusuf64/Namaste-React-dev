@@ -37,10 +37,30 @@ const Header = () => {
   );
 };
 
+const RestaurantCard = () => {
+  return <div className="res-card"></div>;
+};
+
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search">
+        <input type="search" />
+      </div>
+      <div className="res-container">
+        <RestaurantCard />
+      </div>
+    </div>
+  );
+};
+
 const AppLayout = () => {
   return (
     <div className="App">
       <Header />
+
+      <Body />
+      {}
     </div>
   );
 };
