@@ -980,7 +980,7 @@ const RestaurantCard = (props) => {
   const { slaString } = resname.info?.sla;
 
   return (
-    <div className="res-card" style={stylecard}>
+    <div className="res-card">
       <img
         src={
           "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
@@ -1012,16 +1012,8 @@ const Body = () => {
       <div className="res-container">
         {ResList.map((res) => {
           console.log(res);
-          return <RestaurantCard resname={res} />;
+          return <RestaurantCard key={res.info.id} resname={res} />;
         })}
-
-        {/* <RestaurantCard resname={ResList[1]} />
-        <RestaurantCard resname={ResList[2]} />
-        <RestaurantCard resname={ResList[3]} />
-        <RestaurantCard resname={ResList[4]} />
-        <RestaurantCard resname={ResList[5]} />
-        <RestaurantCard resname={ResList[6]} />
-        <RestaurantCard resname={ResList[7]} /> */}
       </div>
     </div>
   );

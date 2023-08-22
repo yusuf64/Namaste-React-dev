@@ -49,3 +49,5 @@ Q. What is Config Driven UI?
 Config Driven UI are based on the configurations of the data application receives. It is rather a good practice to use config driven UIs to make application for dynamic. It is a very common & basic approach to interact with the User. It provides a generic interface to develop things which help your project scale well. It saves a lot of development time and effort. A typical login form, common in most of the Apps. Most of these forms also get frequent updates as the requirements increase in terms of Form Validations, dropdown options,.. or design changes.
 
 basically all the ui which is depend on data configuration is nothing but a config driven UI, SO Our UI will change according to the data we recieve from backend api data configuration
+
+# One more important thing whenver you write a child compoentnt it should must have a unique key property
