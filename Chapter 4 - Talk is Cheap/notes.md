@@ -50,4 +50,6 @@ Config Driven UI are based on the configurations of the data application receive
 
 basically all the ui which is depend on data configuration is nothing but a config driven UI, SO Our UI will change according to the data we recieve from backend api data configuration
 
-# One more important thing whenver you write a child compoentnt it should must have a unique key property
+# One more important thing whenver you write a child compoentnt it should must have a unique key property, so during optimisation or rerendering react will only re render those child components which have a new key, this way it will understood about the old react child , and new child so instead of re rendering every react component it will render only the new child with new key
+
+# if you dont have any unique values to pass in keys you can pass index as a second argument in map function, but it is not recommended to use index .
