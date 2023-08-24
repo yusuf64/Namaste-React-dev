@@ -1,3 +1,5 @@
+import { CONT_URL } from "../utils/constant";
+
 const RestaurantCard = (props) => {
   // console.log(props);
   const { resname } = props;
@@ -14,12 +16,7 @@ const RestaurantCard = (props) => {
 
   return (
     <div className="res-card">
-      <img
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-      />
+      <img src={CONT_URL + cloudinaryImageId} />
       <h3>{name}</h3>
       <p style={{ color: "red" }}>{cuisines.join(", ")}</p>
       <p>{avgRating} stars</p>
