@@ -10,7 +10,6 @@ const stylecard = {
   color: "black",
 };
 
-console.log(<Body />);
 const AppLayout = () => {
   return (
     <div className="App">
@@ -20,8 +19,6 @@ const AppLayout = () => {
     </div>
   );
 };
-
-console.log(<AppLayout />);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

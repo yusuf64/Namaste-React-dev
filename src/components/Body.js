@@ -1,11 +1,56 @@
 import RestaurantCard from "./RestaurantCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import UserList from "./UserList";
 import ResList from "../utils/mockData";
 import FilterRestaurant, { ResList } from "./FilterRestaurant";
 
 const Body = () => {
   const [list, setList] = useState(ResList);
+
+  useEffect(() => {
+    // fetchData();
+    newData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0738955&lng=72.886596&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+
+    const jsonData = await data.json();
+
+    const cardss = await jsonData.data.cards[5].card.card.gridElements
+      ?.infoWithStyle.restaurants;
+
+    setList(cardss);
+
+    // console.log(jsonData);
+
+    return cardss;
+  };
+
+  const newData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0738955&lng=72.886596&collection=94109&isNewCollectionFlow=true&tags=layout_ux4&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
+    );
+    const newd = await data.json();
+
+    const dd = await newd.data.cards;
+
+    const sldata = dd.slice(2);
+
+    const newarr = [];
+
+    const newArray = sldata
+      .filter((e) => e.card && e.card.card && e.card.card.info)
+      .map((e) => e.card.card);
+
+    console.log(newArray);
+
+    setList(newArray);
+
+    return newArray;
+  };
 
   return (
     <div className="body">
