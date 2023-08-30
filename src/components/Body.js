@@ -3,13 +3,19 @@ import { useState, useEffect } from "react";
 import UserList from "./UserList";
 import ResList from "../utils/mockData";
 import FilterRestaurant, { ResList } from "./FilterRestaurant";
+import DoorDashFavorite from "./DoorDashFavorite";
 
 const Body = () => {
-  const [list, setList] = useState(ResList);
+  const [list, setList] = useState([]);
+
+  if (list.length === 0) {
+    <DoorDashFavorite />;
+  }
 
   useEffect(() => {
     // fetchData();
-    newData();
+    setTimeout(fetchData(), 7000);
+    // fetchData();
   }, []);
 
   const fetchData = async () => {
@@ -19,9 +25,12 @@ const Body = () => {
 
     const jsonData = await data.json();
 
-    const cardss = await jsonData.data.cards[5].card.card.gridElements
+    console.log(jsonData);
+
+    const cardss = await jsonData?.data?.cards[2]?.card?.card?.gridElements
       ?.infoWithStyle.restaurants;
 
+    console.log(cardss);
     setList(cardss);
 
     // console.log(jsonData);
@@ -29,28 +38,30 @@ const Body = () => {
     return cardss;
   };
 
-  const newData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0738955&lng=72.886596&collection=94109&isNewCollectionFlow=true&tags=layout_ux4&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
-    );
-    const newd = await data.json();
+  // const newData = async () => {
+  //   const data = await fetch(
+  //     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0738955&lng=72.886596&collection=94109&isNewCollectionFlow=true&tags=layout_ux4&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
+  //   );
+  //   const newd = await data.json();
 
-    const dd = await newd.data.cards;
+  //   const dd = await newd.data;
 
-    const sldata = dd.slice(2);
+  //   console.log(newd);
 
-    const newarr = [];
+  //   // const sldata = dd.slice(2);
 
-    const newArray = sldata
-      .filter((e) => e.card && e.card.card && e.card.card.info)
-      .map((e) => e.card.card);
+  //   // const newarr = [];
 
-    console.log(newArray);
+  //   // const newArray = sldata
+  //   //   .filter((e) => e.card && e.card.card && e.card.card.info)
+  //   //   .map((e) => e.card.card);
 
-    setList(newArray);
+  //   // console.log(newArray);
 
-    return newArray;
-  };
+  //   // setList(newArray);
+
+  //   // return newArray;
+  // };
 
   return (
     <div className="body">
