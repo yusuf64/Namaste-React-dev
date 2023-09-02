@@ -3,18 +3,18 @@ import { useState, useEffect } from "react";
 import UserList from "./UserList";
 import ResList from "../utils/mockData";
 import FilterRestaurant, { ResList } from "./FilterRestaurant";
-import DoorDashFavorite from "./DoorDashFavorite";
+import Shimmer from "./DoorDashFavorite";
 
 const Body = () => {
   const [list, setList] = useState([]);
 
-  if (list.length === 0) {
-    <DoorDashFavorite />;
-  }
+  // if (list.length == 0) {
+  //   return <h1>Hello</h1>;
+  // }
 
   useEffect(() => {
     // fetchData();
-    setTimeout(fetchData(), 7000);
+    fetchData();
     // fetchData();
   }, []);
 
@@ -38,30 +38,17 @@ const Body = () => {
     return cardss;
   };
 
-  // const newData = async () => {
-  //   const data = await fetch(
-  //     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0738955&lng=72.886596&collection=94109&isNewCollectionFlow=true&tags=layout_ux4&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
-  //   );
-  //   const newd = await data.json();
+  if (list.length === 0) {
+    const arshimmer = [];
 
-  //   const dd = await newd.data;
+    let c = 20;
 
-  //   console.log(newd);
+    for (let i = 0; i < c; i++) {
+      arshimmer.push(<Shimmer key={i} />);
+    }
 
-  //   // const sldata = dd.slice(2);
-
-  //   // const newarr = [];
-
-  //   // const newArray = sldata
-  //   //   .filter((e) => e.card && e.card.card && e.card.card.info)
-  //   //   .map((e) => e.card.card);
-
-  //   // console.log(newArray);
-
-  //   // setList(newArray);
-
-  //   // return newArray;
-  // };
+    return <div style={{ display: "flex", flexWrap: "wrap" }}>{arshimmer}</div>;
+  }
 
   return (
     <div className="body">

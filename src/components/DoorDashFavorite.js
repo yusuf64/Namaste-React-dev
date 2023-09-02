@@ -1,26 +1,21 @@
-import React from "react";
-import ContentLoader from "react-content-loader";
+import styles from "../utils/shimer.css";
 
-const DoorDashFavorite = (props) => (
-  <ContentLoader
-    width={450}
-    height={400}
-    viewBox="0 0 450 400"
-    backgroundColor="#f0f0f0"
-    foregroundColor="#dedede"
-    {...props}
-  >
-    <rect x="43" y="304" rx="4" ry="4" width="271" height="9" />
-    <rect x="44" y="323" rx="3" ry="3" width="119" height="6" />
-    <rect x="42" y="77" rx="10" ry="10" width="388" height="217" />
-  </ContentLoader>
-);
+const Shimmer = () => {
+  return (
+    <div class="card">
+      <div class="shimmerBG media"></div>
+      <div class="p-32">
+        <div class="shimmerBG title-line"></div>
+        <div class="shimmerBG title-line end"></div>
 
-DoorDashFavorite.metadata = {
-  name: "Nic Bovee", // My name
-  github: "ghettifish", // Github username
-  description: "A simple favorite from the DoorDash local favorites.", // Little tagline
-  filename: "DoorDashFavorite", // filename of your loader
+        <div class="shimmerBG content-line m-t-24"></div>
+        <div class="shimmerBG content-line"></div>
+        <div class="shimmerBG content-line"></div>
+        <div class="shimmerBG content-line"></div>
+        <div class="shimmerBG content-line end"></div>
+      </div>
+    </div>
+  );
 };
 
-export default DoorDashFavorite;
+export default Shimmer;
