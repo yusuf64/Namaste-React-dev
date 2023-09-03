@@ -14,3 +14,8 @@ There are two approaches to display the data from API.
 
 2. What it does?
    A. So if we want something to be rendered after our component has been rendered then we will use this hook, the component will render first and then whatever we will pass inside this useeffect hook will be called
+
+# Conditional Rendering
+
+Rendering somehting on the basis of condition is known as conditional rendering
+for example - Rendering Shimmer Ui until we get the real data to render
