@@ -19,3 +19,11 @@ There are two approaches to display the data from API.
 
 Rendering somehting on the basis of condition is known as conditional rendering
 for example - Rendering Shimmer Ui until we get the real data to render
+
+# What will happen when you update a state variable
+
+When you update a state variable React quickly re-renders the whole componnet to get the updated data, re-render means it calls that component in which we are upating the state variable
+
+# When using a usestate hook we destructure it and define 2 constants but we cant change the value of const variable, is'nt it?
+
+Yes, you are right we can't change the value of const , but in react when we are updating a state variable, it will re-render/ call that component that means its creating a new const variable whenver the state variable changes but now we have defined its value which we pass from setstate variable. and then it compares to the initial state of that component with the latest one and calculate the diff between these two, and it will only update what is changed, this is nothing but react reconciliation algorithm

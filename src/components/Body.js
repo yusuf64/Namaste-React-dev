@@ -4,18 +4,16 @@ import UserList from "./UserList";
 import ResList from "../utils/mockData";
 import FilterRestaurant, { ResList } from "./FilterRestaurant";
 import Shimmer from "./DoorDashFavorite";
+import SearchComponent from "./SearchComponent";
 
 const Body = () => {
   const [list, setList] = useState([]);
+  const [filterRes, setFilterRes] = useState([]);
 
-  // if (list.length == 0) {
-  //   return <h1>Hello</h1>;
-  // }
+  const [value, setValue] = useState("");
 
   useEffect(() => {
-    // fetchData();
     fetchData();
-    // fetchData();
   }, []);
 
   const fetchData = async () => {
@@ -32,6 +30,7 @@ const Body = () => {
 
     console.log(cardss);
     setList(cardss);
+    setFilterRes(cardss);
 
     // console.log(jsonData);
 
@@ -52,21 +51,48 @@ const Body = () => {
 
   return (
     <div className="body">
-      <button
-        id="filter-btn"
-        onClick={(e) => {
-          const filteredList = list.filter((res) => {
-            return res.info.avgRating > 4.2;
-          });
+      <div className="filter">
+        <button
+          id="filter-btn"
+          onClick={(e) => {
+            const filteredList = list.filter((res) => {
+              return res.info.avgRating > 4.2;
+            });
 
-          setList(filteredList);
-        }}
-      >
-        Top Restaurant
-      </button>
+            setFilterRes(filteredList);
+          }}
+        >
+          Top Restaurant
+        </button>
+        <div className="searchbar">
+          <input
+            type="search"
+            aria-label="search"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
+          <button
+            type="submit"
+            onClick={() => {
+              const newList = list.filter((res) => {
+                return res.info.name
+                  .split(/\s+/g)
+                  .join("")
+                  .toLowerCase()
+                  .includes(value.toLowerCase());
+              });
+              console.log(filterRes.length);
+
+              setFilterRes(newList);
+            }}
+          >
+            Search
+          </button>
+        </div>
+      </div>
 
       <div className="res-container">
-        {list.map((res, index) => {
+        {filterRes.map((res, index) => {
           return <RestaurantCard key={res.info.id} resname={res} />;
         })}
       </div>
