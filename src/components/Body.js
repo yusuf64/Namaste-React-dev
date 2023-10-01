@@ -23,10 +23,18 @@ const Body = () => {
 
     const jsonData = await data.json();
 
-    console.log(jsonData);
+    // console.log(jsonData);
+    const c = jsonData?.data;
 
-    const cardss = await jsonData?.data?.cards[2]?.card?.card?.gridElements
-      ?.infoWithStyle.restaurants;
+    const d = Object.entries(c)[2][1];
+    console.log(d);
+
+    const fi = d.filter((e) => {
+      return e.card.card.gridElements?.infoWithStyle.restaurants;
+    });
+
+    const cardss = await fi[0]?.card?.card?.gridElements?.infoWithStyle
+      .restaurants;
 
     console.log(cardss);
     setList(cardss);
