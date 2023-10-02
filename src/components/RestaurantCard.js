@@ -4,6 +4,7 @@ const RestaurantCard = (props) => {
   // console.log(props);
   const { resname } = props;
   const {
+    id,
     name,
     cloudinaryImageId,
     avgRating,
@@ -15,7 +16,7 @@ const RestaurantCard = (props) => {
   const { slaString } = resname.info?.sla;
 
   return (
-    <div className="res-card">
+    <div className="res-card" id={id}>
       <img src={CONT_URL + cloudinaryImageId} />
       <h3>{name}</h3>
       <p style={{ color: "red" }}>{cuisines.join(", ")}</p>

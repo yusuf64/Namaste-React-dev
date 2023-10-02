@@ -5,6 +5,7 @@ import ResList from "../utils/mockData";
 import FilterRestaurant, { ResList } from "./FilterRestaurant";
 import Shimmer from "./DoorDashFavorite";
 import SearchComponent from "./SearchComponent";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [list, setList] = useState([]);
@@ -101,7 +102,11 @@ const Body = () => {
 
       <div className="res-container">
         {filterRes.map((res, index) => {
-          return <RestaurantCard key={res.info.id} resname={res} />;
+          return (
+            <Link key={res.info.id} to={"/restaurants/" + res.info.id}>
+              <RestaurantCard key={res.info.id} resname={res} />
+            </Link>
+          );
         })}
       </div>
     </div>

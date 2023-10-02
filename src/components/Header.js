@@ -7,16 +7,19 @@ const Header = () => {
   // useEffect(() => {
   //   console.log("hello");
   // }, [login]);
-  // console.log("hello");
 
   return (
     <div className="header">
       <div className="logocontainer">
-        <img src={LOGO_URL} alt="Food logo" className="logo" />
+        <Link to="/">
+          <img src={LOGO_URL} alt="Food logo" className="logo" />
+        </Link>
       </div>
       <div className="nav-links-container">
         <ul>
-          <li>Home</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
           <li>
             <Link to="/about">About us</Link>
           </li>
