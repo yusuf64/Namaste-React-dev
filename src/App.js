@@ -9,6 +9,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import AboutClass from "./components/AboutClass";
 
 const stylecard = {
   backgroundColor: "white",
@@ -40,7 +41,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: <AboutClass />,
       },
       {
         path: "/contact",

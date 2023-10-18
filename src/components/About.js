@@ -1,10 +1,16 @@
+import User from "./User";
+import UserClass from "./UserClass";
+import NewUserClass from "./NewUserClass";
+
 const About = () => {
   return (
     <div
       className="
         "
     >
-      <h1>Hello World this is me inside a component</h1>
+      <h1>Welcome to my World</h1>
+
+      <UserClass name="Yusuf Khan class()" />
     </div>
   );
 };
