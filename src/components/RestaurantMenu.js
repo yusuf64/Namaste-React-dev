@@ -25,6 +25,10 @@ const RestaurantMenu = (props) => {
     return <Shimmer />;
   }
 
+  let mu = res?.cards[2].groupedCard.cardGroupMap.REGULAR.cards;
+  // debugger;
+  console.log(res?.cards[2].groupedCard.cardGroupMap.REGULAR.cards);
+
   const { itemCards } =
     res?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;
   console.log(itemCards);

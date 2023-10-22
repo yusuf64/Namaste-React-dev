@@ -4,15 +4,11 @@ import UserClass from "./UserClass";
 export default class AboutClass extends React.Component {
   constructor(props) {
     super(props);
-    console.log("from super constructore");
-
-    this.state = {
-      count: 0,
-    };
+    console.log("Parent Constructor");
   }
 
   componentDidMount() {
-    console.log("from constructor");
+    console.log("Parent MOunt()");
   }
 
   componentDidUpdate() {
@@ -20,24 +16,17 @@ export default class AboutClass extends React.Component {
   }
 
   render() {
-    const { count } = this.state;
-
-    console.log("from render method");
+    console.log("Parent render ");
     return (
       <div
         className="
         "
       >
-        <h1>Welcome to my World {count}</h1>
-        <button
-          onClick={() =>
-            this.setState({
-              count: count + 1,
-            })
-          }
-        ></button>
+        <h1>Welcome to my World </h1>
 
-        <UserClass name="Yusuf Khan class()" />
+        <UserClass name="Yusuf Khan" />
+        <UserClass name="Berserk" />
+        <UserClass name="Guts" />
       </div>
     );
   }

@@ -20,6 +20,51 @@
 
 # IN Class based components if you want to create local state variables we can use the this.state to create a local state variables and this.state is nothing but an object that contains all the variables with its inital value, to update the state variable we have this.setState this is also an object in whihc we can modify or update our state varaibel
 
+# what will happen if we render two class based child components in a parent class based component what will be the lifecylce order
+
+Lifecycle:
+
+- Parent constructor will be called
+- Parent render will be called
+- if class based components encountered then it will trigger its lifecyle
+- 1st child constructor will be called
+- 1st child render will be called
+- 2nd child constuctor will be called
+- 2nd child render will be called
+- after both child has been rendered which means it has been mounted then
+- 1st child ComponentDidMount will be called
+- 2nd child ComponentDidMount will be called
+- Parent ComponentDid MOunt will be called
+
+# React Component Lifecycle
+
+React component lifecylce has two Phases
+
+A. Mounting, Updating
+
+1. Render Phase
+
+   - Constructor
+   - Render
+
+2. Commit Phase
+   - React updates the DOM
+   - ComponentdidMount is called for sideeffects
+
+# React Update Lifecycle
+
+- constructor {state variable created}
+- render { state variable mounted - dummy}
+- componentdid mount { making an API call and updating the state variable}
+- setstate() triggerd
+- render Method will called again (to update the dummy data with real data)
+- dom will be updated
+- Component Did update will be called
+
+# NOTE
+
+# when mutiple class child is called, then React will batch the render phase of both child component, then it will call the component did mount method
+
 Chapter 08 - Let's get Classy
 Q: How do you create Nested Routes react-router-dom configuration?
 A: We can create a Nested Routes inside a react router configuration as follows: first call createBrowserRouter for routing different pages
