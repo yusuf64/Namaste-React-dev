@@ -6,6 +6,7 @@ import { MENU_URL } from "../utils/constant";
 const RestaurantMenu = (props) => {
   const [res, setres] = useState(null);
   const { resName } = useParams();
+  console.log(resName);
 
   useEffect(() => {
     fetchMenu();
