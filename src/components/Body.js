@@ -6,45 +6,17 @@ import FilterRestaurant, { ResList } from "./FilterRestaurant";
 import Shimmer from "./DoorDashFavorite";
 import SearchComponent from "./SearchComponent";
 import { Link } from "react-router-dom";
+import { RES_URL } from "../utils/constant";
+import useFetch from "../utils/useFetch";
+import useCheckconn from "../utils/useCheckconn";
 
 const Body = () => {
-  const [list, setList] = useState([]);
-  const [filterRes, setFilterRes] = useState([]);
+  const check = useCheckconn();
+  console.log(check);
 
   const [value, setValue] = useState("");
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0738955&lng=72.886596&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-
-    const jsonData = await data.json();
-
-    // console.log(jsonData);
-    const c = jsonData?.data;
-
-    const d = Object.entries(c)[2][1];
-    console.log(d);
-
-    const fi = d.filter((e) => {
-      return e.card.card.gridElements?.infoWithStyle.restaurants;
-    });
-
-    const cardss = await fi[0]?.card?.card?.gridElements?.infoWithStyle
-      .restaurants;
-
-    console.log(cardss);
-    setList(cardss);
-    setFilterRes(cardss);
-
-    // console.log(jsonData);
-
-    return cardss;
-  };
+  const { list, filterRes } = useFetch(RES_URL);
 
   if (list.length === 0) {
     const arshimmer = [];

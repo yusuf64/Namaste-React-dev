@@ -2,25 +2,28 @@ import { useEffect, useState } from "react";
 import Shimmer from "./DoorDashFavorite";
 import { useParams } from "react-router-dom";
 import { MENU_URL } from "../utils/constant";
+import useFetchData from "../utils/useFetchData";
 
 const RestaurantMenu = (props) => {
-  const [res, setres] = useState(null);
   const { resName } = useParams();
+
+  const res = useFetchData(resName);
+
   console.log(resName);
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
+  // useEffect(() => {
+  //   fetchMenu();
+  // }, []);
 
-  const fetchMenu = async () => {
-    console.log(MENU_URL + resName);
-    const data = await fetch(MENU_URL + resName);
+  // const fetchMenu = async () => {
+  //   console.log(MENU_URL + resName);
+  //   const data = await fetch(MENU_URL + resName);
 
-    const j = await data.json();
+  //   const j = await data.json();
 
-    const json = j.data;
-    setres(json);
-  };
+  //   const json = j.data;
+  //   setres(json);
+  // };
 
   if (res === null) {
     return <Shimmer />;

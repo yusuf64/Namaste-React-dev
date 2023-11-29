@@ -1,13 +1,27 @@
 import { MENU_URL } from "./constant";
+import { useState } from "react";
+import { useEffect } from "react";
 
-const useFetchData = async (resId) => {
-  const data = await fetch(MENU_URL + resId);
+const useFetchData = (resId) => {
+  const [res, setres] = useState(null);
 
-  const r = await data.json();
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  const p = r.data;
+  const fetchData = async () => {
+    const data = await fetch(MENU_URL + resId);
 
-  return p;
+    const json = await data.json();
+
+    const p = json.data;
+
+    console.log(p);
+
+    setres(p);
+  };
+
+  return res;
 };
 
 export default useFetchData;
