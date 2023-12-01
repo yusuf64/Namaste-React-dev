@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 
 const useCheckconn = () => {
-  const [status, setStatus] = useState(false);
+  const [status, setStatus] = useState(true);
 
   useEffect(() => {
-    debugger;
     window.addEventListener("online", () => {
       setStatus(true);
     });

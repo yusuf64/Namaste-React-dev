@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -12,10 +12,15 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import AboutClass from "./components/AboutClass";
 import Formbody from "./components/Formbody";
 
+import Loading from "./components/Loading";
+// import Grocery from "./components/Grocery";
+
 const stylecard = {
   backgroundColor: "white",
   color: "black",
 };
+
+const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
   return (
@@ -51,6 +56,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/form",
         element: <Formbody />,
+      },
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Grocery />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <Error />,

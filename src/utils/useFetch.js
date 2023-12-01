@@ -30,7 +30,7 @@ const useFetch = (res) => {
     setList(cardss);
     setFilterRes(cardss);
   };
-  return { list, filterRes };
+  return { list, filterRes, setFilterRes };
 };
 
 export default useFetch;

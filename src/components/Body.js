@@ -12,11 +12,10 @@ import useCheckconn from "../utils/useCheckconn";
 
 const Body = () => {
   const check = useCheckconn();
-  console.log(check);
 
   const [value, setValue] = useState("");
 
-  const { list, filterRes } = useFetch(RES_URL);
+  const { list, filterRes, setFilterRes } = useFetch(RES_URL);
 
   if (list.length === 0) {
     const arshimmer = [];
@@ -29,6 +28,13 @@ const Body = () => {
 
     return <div style={{ display: "flex", flexWrap: "wrap" }}>{arshimmer}</div>;
   }
+
+  if (check === false)
+    return (
+      <h1>
+        Looks like you are Offline!!, please check your internet connection
+      </h1>
+    );
 
   return (
     <div className="body">

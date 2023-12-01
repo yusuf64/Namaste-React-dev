@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { LOGO_URL } from "../utils/constant";
 import { Link, Router, link } from "react-router-dom";
+import useCheckconn from "../utils/useCheckconn";
 
 const Header = () => {
   const [login, setLogin] = useState("login");
+  const status = useCheckconn();
   // useEffect(() => {
   //   console.log("hello");
   // }, [login]);
@@ -17,6 +19,7 @@ const Header = () => {
       </div>
       <div className="nav-links-container">
         <ul>
+          <li>Online Status: {status ? "✅" : "🔴"}</li>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -28,6 +31,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/contact">Contact us</Link>
+          </li>
+          <li>
+            <Link to="/grocery">Grocery</Link>
           </li>
           <li>Cart</li>
           <button
