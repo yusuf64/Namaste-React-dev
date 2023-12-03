@@ -47,7 +47,7 @@ const RestaurantMenu = (props) => {
 
       <p>{costForTwoMessage}</p>
 
-      <ul>
+      <ul className=" ">
         {itemCards.map((e) => {
           return (
             <div>

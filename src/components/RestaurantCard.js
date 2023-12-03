@@ -16,7 +16,7 @@ const RestaurantCard = (props) => {
   const { slaString } = resname.info?.sla;
 
   return (
-    <div className="res-card" id={id}>
+    <div className="res-card border shadow-lg px-5" id={id}>
       <img src={CONT_URL + cloudinaryImageId} />
       <h3>{name}</h3>
       <p style={{ color: "red" }}>{cuisines.join(", ")}</p>

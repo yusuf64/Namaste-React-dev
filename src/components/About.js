@@ -8,7 +8,7 @@ const About = () => {
       className="
         "
     >
-      <h1>Welcome to my World</h1>
+      <h1 className=" text-3xl font-bold underline">Welcome to my World</h1>
 
       <UserClass name="Yusuf Khan class()" />
     </div>

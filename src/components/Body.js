@@ -37,7 +37,7 @@ const Body = () => {
     );
 
   return (
-    <div className="body">
+    <div className="body py-20">
       <div className="filter">
         <button
           id="filter-btn"
@@ -78,11 +78,15 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="res-container">
+      <div className="res-container flex flex-wrap">
         {filterRes.map((res, index) => {
           return (
-            <Link key={res.info.id} to={"/restaurants/" + res.info.id}>
-              <RestaurantCard key={res.info.id} resname={res} />
+            <Link
+              className="basis-1/5 px-5 pb-5 "
+              key={res.info.id}
+              to={"/restaurants/" + res.info.id}
+            >
+              <RestaurantCard className="" key={res.info.id} resname={res} />
             </Link>
           );
         })}

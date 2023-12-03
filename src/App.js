@@ -24,7 +24,7 @@ const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
   return (
-    <div className="App">
+    <div className="App md:container md:mx-auto px-4">
       <Header />
 
       <Outlet />
@@ -42,7 +42,7 @@ const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: "/restaurants/:resName",
+        path: "/restaurants/:resName ",
         element: <RestaurantMenu />,
       },
       {
