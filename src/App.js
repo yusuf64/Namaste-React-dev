@@ -13,6 +13,8 @@ import AboutClass from "./components/AboutClass";
 import Formbody from "./components/Formbody";
 
 import Loading from "./components/Loading";
+
+import useFetch from "./utils/useFetch";
 // import Grocery from "./components/Grocery";
 
 const stylecard = {
@@ -42,7 +44,7 @@ const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: "/restaurants/:resName ",
+        path: "/restaurants/:resName",
         element: <RestaurantMenu />,
       },
       {

@@ -86,7 +86,7 @@ const Body = () => {
               key={res.info.id}
               to={"/restaurants/" + res.info.id}
             >
-              <RestaurantCard className="" key={res.info.id} resname={res} />
+              <RestaurantCard key={res.info.id} resname={res} />
             </Link>
           );
         })}

@@ -41,7 +41,7 @@ const RestaurantMenu = (props) => {
     res?.cards[0]?.card?.card?.info;
 
   return (
-    <div>
+    <div className="md:container  flex justify-center flex-col items-center">
       <h1>{name}</h1>
       <h2>{cuisines.join(",")}</h2>
 
@@ -50,8 +50,8 @@ const RestaurantMenu = (props) => {
       <ul className=" ">
         {itemCards.map((e) => {
           return (
-            <div>
-              <li key={e.card.info.id}>
+            <div className="flex justify-between shadow-lg my-3 rounded-md px-3 items-center font-bold font-mono ">
+              <li className="fw-bold" key={e.card.info.id}>
                 {e.card.info.name} - ₹
                 {parseInt(e.card.info.price || e.card.info.defaultPrice) / 100}
               </li>
