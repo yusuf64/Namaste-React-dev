@@ -28,7 +28,7 @@ const RestaurantCard = (props) => {
       </div>
 
       <div className="content-box px-4 py-2">
-        <h3 className="font-semibold text-lg text-[#02060cbf]">{name}</h3>
+        <h3 className="font-semibold  text-lg text-[#02060cbf]">{name}</h3>
         <p style={{ color: "red" }}>{cuisines.join(", ")}</p>
         <p>{avgRating} stars</p>
         <p>{costForTwo}</p>
