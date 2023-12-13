@@ -37,9 +37,10 @@ const Body = () => {
     );
 
   return (
-    <div className="body py-20">
-      <div className="filter">
+    <div className="body ">
+      <div className="filter flex flex-row-reverse justify-center  text-white py-11">
         <button
+          className="shadow-md rounded-md bg-slate-400 px-6 py-2 mx-3"
           id="filter-btn"
           onClick={(e) => {
             const filteredList = list.filter((res) => {
@@ -51,14 +52,16 @@ const Body = () => {
         >
           Top Restaurant
         </button>
-        <div className="searchbar">
+        <div className="searchbar text-white ">
           <input
+            className="py-2 rounded-bl-md rounded-tl-md border-slate-400  text-slate-400 border-2 rounded w-[500px]"
             type="search"
             aria-label="search"
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
           <button
+            className="border-slate-400 border-2  text-white shadow-md rounded-tr-md rounded-br-md bg-slate-400 px-6 py-2"
             type="submit"
             onClick={() => {
               const newList = list.filter((res) => {
@@ -82,7 +85,7 @@ const Body = () => {
         {filterRes.map((res, index) => {
           return (
             <Link
-              className="basis-1/5 px-5 pb-5 "
+              className="basis-1/5 px-5 pb-5 h-auto flex"
               key={res.info.id}
               to={"/restaurants/" + res.info.id}
             >
