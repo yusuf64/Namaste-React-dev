@@ -1,7 +1,6 @@
 import { CONT_URL } from "../utils/constant";
 
 const RestaurantCard = (props) => {
-  // console.log(props);
   const { resname } = props;
   const {
     id,
@@ -36,6 +35,17 @@ const RestaurantCard = (props) => {
       </div>
     </div>
   );
+};
+
+export const VegRestaurant = (rescard) => {
+  return (props) => {
+    return (
+      <div>
+        <label>Veg</label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;

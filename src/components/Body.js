@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { VegRestaurant } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import UserList from "./UserList";
 import ResList from "../utils/mockData";
@@ -16,6 +16,10 @@ const Body = () => {
   const [value, setValue] = useState("");
 
   const { list, filterRes, setFilterRes } = useFetch(RES_URL);
+
+  console.log(list);
+
+  const Veg = VegRestaurant(<RestaurantCard />);
 
   if (list.length === 0) {
     const arshimmer = [];
@@ -89,7 +93,11 @@ const Body = () => {
               key={res.info.id}
               to={"/restaurants/" + res.info.id}
             >
-              <RestaurantCard key={res.info.id} resname={res} />
+              {res.info.isOpen ? (
+                <Veg key={res.info.id} resname={res} />
+              ) : (
+                <RestaurantCard key={res.info.id} resname={res} />
+              )}
             </Link>
           );
         })}
