@@ -1,11 +1,10 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import SearchComponent from "./components/SearchComponent";
 import RestaurantCard from "./components/RestaurantCard";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
@@ -13,6 +12,8 @@ import AboutClass from "./components/AboutClass";
 import Formbody from "./components/Formbody";
 
 import Loading from "./components/Loading";
+
+import UserContext from "./utils/UserContext";
 
 import useFetch from "./utils/useFetch";
 // import Grocery from "./components/Grocery";
@@ -23,14 +24,25 @@ const stylecard = {
 };
 
 const Grocery = lazy(() => import("./components/Grocery"));
+const Abouty = lazy(() => import("./components/AboutClass"));
 
 const AppLayout = () => {
-  return (
-    <div className="App md:container md:mx-auto px-4">
-      <Header />
+  const [username, setUserName] = useState("");
+  useEffect(() => {
+    const data = {
+      name: "Yusuf Khan",
+    };
 
-      <Outlet />
-    </div>
+    setUserName(data.name);
+  }, []);
+  return (
+    <UserContext.Provider value={{ user: username, setUserName, username }}>
+      <div className="App md:container md:mx-auto px-4">
+        <Header />
+
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 
@@ -48,8 +60,12 @@ const appRouter = createBrowserRouter([
         element: <RestaurantMenu />,
       },
       {
-        path: "/about",
-        element: <AboutClass />,
+        path: "/abouty",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Abouty />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",

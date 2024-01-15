@@ -3,6 +3,7 @@ import UserContext from "../utils/UserContext";
 import { LOGO_URL } from "../utils/constant";
 import { Link, Router, link } from "react-router-dom";
 import useCheckconn from "../utils/useCheckconn";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [login, setLogin] = useState("login");
@@ -31,7 +32,7 @@ const Header = () => {
             <Link to="/form">Form</Link>
           </li>
           <li className="px-3">
-            <Link to="/about">About us</Link>
+            <Link to="/abouty">About us</Link>
           </li>
           <li className="px-3">
             <Link to="/contact">Contact us</Link>

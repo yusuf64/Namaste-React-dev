@@ -1,5 +1,5 @@
 import RestaurantCard, { VegRestaurant } from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import UserList from "./UserList";
 import ResList from "../utils/mockData";
 import FilterRestaurant, { ResList } from "./FilterRestaurant";
@@ -9,9 +9,12 @@ import { Link } from "react-router-dom";
 import { RES_URL } from "../utils/constant";
 import useFetch from "../utils/useFetch";
 import useCheckconn from "../utils/useCheckconn";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const check = useCheckconn();
+
+  const { setUserName, username } = useContext(UserContext);
 
   const [value, setValue] = useState("");
 
@@ -56,6 +59,15 @@ const Body = () => {
         >
           Top Restaurant
         </button>
+        <div className="search-bar">
+          <span className="text-black">Change Username:</span>
+          <input
+            type="text"
+            className="border text-black px-3 py-2"
+            value={username}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>
         <div className="searchbar text-white ">
           <input
             className="py-2 rounded-bl-md rounded-tl-md border-slate-400  text-slate-400 border-2 rounded w-[500px]"
