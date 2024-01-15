@@ -15,7 +15,7 @@ class UserClass extends React.Component {
 
   async componentDidMount() {
     const data = await fetch(
-      "https://corsproxy.io/?https://api.github.com/users/yusuf64"
+      "https://thingproxy.freeboard.io/fetch/https://api.github.com/users/yusuf64"
     );
     const j = await data.json();
     console.log(j.avatar_url);

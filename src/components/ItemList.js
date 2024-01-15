@@ -1,6 +1,6 @@
 const ItemList = ({ e }) => {
   return (
-    <div className="accordioninner text-center">
+    <div className="accordioninner text-center" key={e?.card?.card?.title}>
       {e?.card?.card?.itemCards.map((e) => {
         return (
           <div

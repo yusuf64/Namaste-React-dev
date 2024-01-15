@@ -40,7 +40,7 @@ const RestaurantCard = (props) => {
 export const VegRestaurant = (rescard) => {
   return (props) => {
     return (
-      <div>
+      <div className="w-full">
         <label>Veg</label>
         <RestaurantCard {...props} />
       </div>

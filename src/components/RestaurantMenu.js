@@ -9,7 +9,7 @@ import ItemCategory from "./ItemCategory";
 const RestaurantMenu = (props) => {
   const { resName } = useParams();
 
-  const [showList, setShowList] = useState(false);
+  
   const res = useFetchData(resName);
 
   console.log(resName);
@@ -36,9 +36,7 @@ const RestaurantMenu = (props) => {
     );
   });
 
-  const handleClick = () => {
-    setShowList(!showList);
-  };
+ 
 
   // const { accordionTitle } = accordionMenu.card.card.title;
 
@@ -49,20 +47,10 @@ const RestaurantMenu = (props) => {
 
       <p>{costForTwoMessage}</p>
 
-      <div className="accordion-box py-3  w-1/2 flex justify-center items-center flex-col">
+      <div className="accordion-box py-3  w-1/2 flex justify-center items-center flex-col ">
         {accordionMenu.map((e) => {
           return (
-            <div className="accordion-inner-box w-full px-3">
-              <div
-                className="flex justify-between cursor-pointer"
-                onClick={handleClick}
-              >
-                <ItemCategory e={e} />
-                <span></span>
-              </div>
-
-              {showList && <ItemList e={e} />}
-            </div>
+           <ItemCategory e={e} key={e?.card?.card?.title}/>
           );
         })}
       </div>

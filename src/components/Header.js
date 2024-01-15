@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import UserContext from "../utils/UserContext";
 import { LOGO_URL } from "../utils/constant";
 import { Link, Router, link } from "react-router-dom";
 import useCheckconn from "../utils/useCheckconn";
@@ -6,6 +7,9 @@ import useCheckconn from "../utils/useCheckconn";
 const Header = () => {
   const [login, setLogin] = useState("login");
   const status = useCheckconn();
+
+  const { user } = useContext(UserContext);
+
   // useEffect(() => {
   //   console.log("hello");
   // }, [login]);
@@ -35,7 +39,7 @@ const Header = () => {
           <li className="px-3">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="px-3">Cart</li>
+          <li className="px-3">{user}</li>
           <button
             className="Log"
             onClick={() => {
