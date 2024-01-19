@@ -1,4 +1,12 @@
+import { UseDispatch, useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
+
 const ItemList = ({ e }) => {
+  const dispatch = useDispatch();
+  const handleClick = (item) => {
+    dispatch(addItem([item.card.info.name, item.card.info?.description]));
+  };
+
   return (
     <div className="accordioninner text-center" key={e?.card?.card?.title}>
       {e?.card?.card?.itemCards.map((e) => {
@@ -33,6 +41,7 @@ const ItemList = ({ e }) => {
                   alt=""
                 />
                 <button
+                  onClick={() => handleClick(e)}
                   className="block relative
                          border px-6 m-auto py-1 bg-white text-green-500 rounded-md font-bold shadow-sm top-[-10px]"
                 >

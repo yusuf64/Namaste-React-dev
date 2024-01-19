@@ -4,12 +4,19 @@ import { LOGO_URL } from "../utils/constant";
 import { Link, Router, link } from "react-router-dom";
 import useCheckconn from "../utils/useCheckconn";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [login, setLogin] = useState("login");
   const status = useCheckconn();
 
   const { user } = useContext(UserContext);
+
+  // subscribing to the store using the selector
+
+  const cartItems = useSelector((store) => {
+    return store.cart.items;
+  });
 
   // useEffect(() => {
   //   console.log("hello");
@@ -38,7 +45,7 @@ const Header = () => {
             <Link to="/contact">Contact us</Link>
           </li>
           <li className="px-3">
-            <Link to="/grocery">Grocery</Link>
+            <Link to="/grocery">Grocery {cartItems.length}</Link>
           </li>
           <li className="px-3">{user}</li>
           <button

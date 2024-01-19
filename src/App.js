@@ -10,12 +10,11 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import AboutClass from "./components/AboutClass";
 import Formbody from "./components/Formbody";
-
 import Loading from "./components/Loading";
-
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
-import useFetch from "./utils/useFetch";
 // import Grocery from "./components/Grocery";
 
 const stylecard = {
@@ -36,13 +35,15 @@ const AppLayout = () => {
     setUserName(data.name);
   }, []);
   return (
-    <UserContext.Provider value={{ user: username, setUserName, username }}>
-      <div className="App md:container md:mx-auto px-4">
-        <Header />
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ user: username, setUserName, username }}>
+        <div className="App md:container md:mx-auto px-4">
+          <Header />
 
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
