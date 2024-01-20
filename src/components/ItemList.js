@@ -3,13 +3,13 @@ import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ e }) => {
   const dispatch = useDispatch();
-  const handleClick = (item) => {
-    dispatch(addItem([item.card.info.name, item.card.info?.description]));
+  const newd = (item) => {
+    dispatch(addItem(item));
   };
 
   return (
-    <div className="accordioninner text-center" key={e?.card?.card?.title}>
-      {e?.card?.card?.itemCards.map((e) => {
+    <div className="accordioninner text-center" key={e.title}>
+      {e.map((e) => {
         return (
           <div
             className="details flex justify-between items-center border-b-[1px] my-2 py-2"
@@ -41,7 +41,7 @@ const ItemList = ({ e }) => {
                   alt=""
                 />
                 <button
-                  onClick={() => handleClick(e)}
+                  onClick={() => newd(e)}
                   className="block relative
                          border px-6 m-auto py-1 bg-white text-green-500 rounded-md font-bold shadow-sm top-[-10px]"
                 >

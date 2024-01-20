@@ -50,7 +50,7 @@ const RestaurantMenu = (props) => {
       <div className="accordion-box py-3  w-1/2 flex justify-center items-center flex-col ">
         {accordionMenu.map((e) => {
           return (
-           <ItemCategory e={e} key={e?.card?.card?.title}/>
+           <ItemCategory e={e?.card?.card} key={e?.card?.card?.title}/>
           );
         })}
       </div>

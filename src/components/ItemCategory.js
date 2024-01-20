@@ -12,14 +12,14 @@ const ItemCategory = ({ e }) => {
   return (
     <div
       className="accordion-inner-box w-full px-3 shadow-md my-3 rounded-md "
-      key={e.card.card.title}
+      key={e.title}
     >
       <div
         className="flex justify-between cursor-pointer items-center"
         onClick={handleClick}
       >
         <h1 className="title py-3 my-3  rounded-md w-full block font-bold text-xl cursor-pointer">
-          {e?.card?.card?.title}({e?.card?.card?.title.length})
+          {e?.title}({e?.itemCards.length})
         </h1>
         <span
           className={
@@ -30,7 +30,7 @@ const ItemCategory = ({ e }) => {
         >{`>`}</span>
       </div>
 
-      {showList && <ItemList e={e} />}
+      {showList && <ItemList e={e.itemCards} />}
     </div>
   );
 };
